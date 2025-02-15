@@ -1,4 +1,7 @@
+import { AnswerCardUseCase } from "../../src/application/usecases/AnswerCardUseCase";
+import { CreateCardUseCase } from "../../src/application/usecases/CreateCardUseCase";
 import { Category } from "../../src/domain/entities/Category";
+import { InMemoryCardRepository } from "../../src/infrastructure/repository/InMemoryCardRepository";
 
 describe("AnswerCardUseCase", () => {
     let createUseCase: CreateCardUseCase;

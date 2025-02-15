@@ -1,3 +1,6 @@
+import { CreateCardUseCase } from "../../src/application/usecases/CreateCardUseCase";
+import { InMemoryCardRepository } from "../../src/infrastructure/repository/InMemoryCardRepository";
+
 describe("CreateCardUseCase", () => {
     let useCase: CreateCardUseCase;
     let repository: InMemoryCardRepository;
