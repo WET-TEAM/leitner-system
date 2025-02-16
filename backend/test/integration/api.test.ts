@@ -1,7 +1,7 @@
 import request from "supertest";
 import express from "express";
 import bodyParser from "body-parser";
-import cardRoutes from "../../src/infrastructure/web/routes/cardRoutes";
+import cardRoutes from "../../src/infrastructure/web/routes/CardRoutes";
 
 const app = express();
 app.use(bodyParser.json());

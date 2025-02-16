@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import cardRoutes from "./infrastructure/web/routes/cardRoutes";
+import cardRoutes from "./infrastructure/web/routes/CardRoutes";
 
 const app = express();
 
