@@ -7,10 +7,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
     "start": "node dist/src/index.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "express": "^4.21.2",

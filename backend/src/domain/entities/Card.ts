@@ -6,6 +6,7 @@ export class Card {
   public readonly tag?: string;
   public category: Category;
   public lastAnsweredAt?: Date;
+  public lastReviewedAt?: Date;
   constructor(id: string, question: string, answer: string, tag?: string) {
     this.id = id;
     this.question = question;
@@ -47,8 +48,31 @@ export class Card {
       default:
         break;
     }
+    this.lastReviewedAt = new Date();
   }
   private demote(): void {
     this.category = Category.FIRST;
+    this.lastReviewedAt = new Date();
+  }
+  public shouldBeReviewed(currentDate: Date = new Date()): boolean {
+    if (!this.lastReviewedAt) return true;
+
+    const daysSinceLastReview = Math.floor(
+      (currentDate.getTime() - this.lastReviewedAt.getTime()) /
+      (1000 * 60 * 60 * 24)
+    );
+
+    const reviewIntervals = {
+      [Category.FIRST]: 1,
+      [Category.SECOND]: 2,
+      [Category.THIRD]: 4,
+      [Category.FOURTH]: 8,
+      [Category.FIFTH]: 16,
+      [Category.SIXTH]: 32,
+      [Category.SEVENTH]: 64,
+      [Category.DONE]: Infinity,
+    };
+
+    return daysSinceLastReview >= reviewIntervals[this.category];
   }
 }
